@@ -1,0 +1,44 @@
+Transcriber's Name - Crescendo Transcriptions Pvt. Ltd. 
+Machine Learning Foundations
+Professor. Prashanth L A
+Department of Computer Science and Engineering 
+Indian Institute of Technology, Madras
+Orthogonally Diagonalizable matrices 
+
+Welcome to the last lecture in week 4 of machine learning foundations. In this lecture, we will state the spectral theorem for the real case. And we will also play this theorem to diagonalize a matrix simple 2 cross 2 matrix. And in particular as I have mentioned in the previous lectures also the main idea the spectral theorem implies diagonalizability for a important class of matrices which is the real symmetric matrices. 
+
+So, it says that any real symmetric matrix is diagonalizable. In particular it is orthogonal diagonalizable. So, we will understand what it means to say a matrix is only diagonalizable. And we will just take this as a fact in the subsequent lectures will prove this fact with this theorem in a more general case which is for complex vector space where we will be where the generalization of a real symmetric matrix is what is called as a Hermitian matrix. 
+
+So we will prove spectral theorem for a more general case subsequently but in this particular lecture we will just take this for the real case take an example and understand how I can orthogonally diagonalize this matrix. 
+
+From here on we will spend a few lectures in arriving at the following main result on diagonalization of real symmetric matrices. So, the result is imagine A is a real symmetric matrix, then the following facts are consigning the matrix A are true. So, the first thing is eigenvalues of A are real. The second fact is eigenvectors corresponding to different eigenvalues are linearly independent. 
+
+And three and by far the most important fact A is orthogonally diagonalizable. This is a twist to the usual diagonalizable claim. What do I mean by orthogonally diagonalizability? This means there exists a matrix Q satisfying this is such a matrix is an orthogonal matrix. Such that A can be written as Q lambda Q transpose which is the same as I write it like this x1 until xn eigenvalues and Q transpose. 
+
+So, this is x1 transpose x2 transpose and so on until xn transpose is a real symmetric n cross n matrix. Just minor fact this implies Q inverse equals Q transpose. So what we have is A is diagonalizable in the conventional sense plus add an orthogonal matrix for a diagonalization. This is orthogonally diagonalizable. 
+
+So, this is like seeing A equals Q lambda Q inverse and this is like saying that Q transpose Q equals I and this just means A as Q lambda Q transpose. So, this is the major fact we have not shown this, but we will show this with some you know after covering some background. But this is a fact right now that you can believe if your matrix is real symmetric then it is known the important thing is you know you need a real symmetric matrix. 
+
+Any real matrix is not diagonalizable. And we have seen an example before in one of the earlier classes. Any real matrix is not real you know diagonalizable remark 1. Let us say 2 any real matrix is not necessarily diagonalizable. But a real symmetric matrix is diagonalizable. And we can also find an orthogonal matrix to diagonalize it. 
+
+And we already seen this example of a matrix which is not diagonalizable in one of the previous lectures. For example, A is this is not diagonalizable. So, we will let us do an example to understand orthogonal diagonalizability take the matrix A is 1 minus 2 minus 2 minus 2. So, pause the lecture video and do the calculations on your own just going to give out the main result if you look at the eigenvalues. 
+
+The eigenvalues are lambda 1 equals minus 3 lambda 2 equals 2 the corresponding eigenvectors I am going to denote them as Q1 and Q2 simply because I put this in a matrix which is called Q1 or let us say x1 x1 is 1 comma 2. And x2 is minus 2 comma 1 I am going to make a Q1 which is x1 divided by length of x1. This turns out to be what is the length of x1 1 square plus 2 square it is 5 with a square root 1 by square root 5 into 2  and Q2 is x2 divided by length of x2 this turns out to be 1 by square root 5 minus 2 1. 
+
+Now, you make a matrix Q which is just q1 and q2 just 1 by square root 5 2 by square root 5 minus 2 by square root 5 1 by square root 5. Then of course you can check this check Q transpose Q is identity. This is something you need to check. And when you are doing your calculation or answering an exam problem. 
+
+If you have actually found a orthogonal matrix the sanity check to do is check this. Now, what is Q lambda Q transpose? This is this matrix 1 by square root 5 minus 2 by square root 5 2 by square root 5 the square root 5. The eigenvalues are minus 3 0 0 2 into this inverse is just the transpose of 1 by square root 5 2 by square root 5 minus 2 by square root 5 and 1 by sqaure root 5. 
+
+This if you check turns be a matrix A. Which is 1 minus 2 minus 2 minus 2. So, again this check this so much for an example. So the point important point is I could diagonalize this. Obviously, I could also diagonalize with these vectors x1 and x2. But if I put x1 and x2 as columns in a matrix then they will not satisfy this relation which is you know orthogonally requirement which is Q transpose Q equals I. 
+
+Whereas when I normalize them and if I put them in a matrix yes they will satisfy. So that is the deal. At this point I will have to cover some background to show this main fact. Which is any real symmetric matrix is orthogonally diagonalizable. I need to cover some background on complex matrices. I will do that now. And then come back to showing that any real matrix is orthogonally diagonalizable. So, we will cover the background on complex matrices now. 
+
+Quick summary before we end this lecture what did we understand in this lecture we just stated the spectral theorem which just says that you know if I have a real symmetric matrix, then I can orthogonally diagonalize it. And the diagonal matrix will contain only real entries which correspond to the eigenvalues of this matrix. These are two important facts that come from spectral theorem.
+
+And the important point is we are looking at real symmetric matrices and spectral theorem says that it is a diagonalizable. But any real matrix is not necessarily diagonalizable so that is a important thing to understand. But there could be real matrices which are not diagonalizable we saw an example in this lecture. And the most important thing is we learned by example by taking a 2 cross 2 simple 2 cross 2 matrix. And we orthogonally diagonalize this matrix by calculating the eigenvalues corresponding eigenvectors and then normalizing them. 
+
+So, we got a set of orthonormal eigenvectors and then we use these orthonormal eigenvectors to make up the Eigen decomposition of this matrix which is the effectively saying this matrix is orthogonally diagonalizable. In the subsequent lectures, we will be looking at a more general case where we look at complex  matrix and the generalization of real symmetric matrices would be Hermitian matrices there we will show that every Hermitian matrix is diagonalizable. 
+
+And that just implies this spectral theorem for the real symmetric case because real cases are you know simple special cases of a Hermitian matrix.
+
+

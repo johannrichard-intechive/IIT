@@ -1,0 +1,72 @@
+Transcriber's Name - Crescendo Transcriptions Pvt. Ltd. 
+Machine Learning Foundations
+Professor. Prashanth L A
+Department of Computer Science and Engineering 
+Indian Institute of Technology, Madras
+Diagonalization of a Matrix
+
+Welcome to lecture number 3 in week 4 of machine learning foundations. In this lecture we will start the discussion about similarity and diagonalization of a matrix. In particular, we will define what it means to say our matrix A is diagonalizable and will relate this to the idea of linear independence of eigenvectors of this matrix. So, the question of whether a matrix is diagonalizable is strongly related to how many linearly independent eigenvectors I can get and I get enough to diagonalize this matrix.
+
+And then we will look at a very special case imagine you have a n cross in matrix if I can get a n linearly if all the eigenvalues of this matrix are distinct, then it is diagonalizable because I can get enough eigenvectors. And that is a particular special case, interesting special case that we will see. And in the subsequent lectures we will build up this theory to go to the final claim which is to understand which is the spectral theorem which says that any real symmetric matrix is diagonalizable. We will get there in the steps. That is the final claim that we are heading towards. 
+
+So, welcome everyone to another lecture on linear algebra the module that we are looking at in the previous lecture we looked at eigenvalues and eigenvectors and looked at some motivation using ordinary differential equations. And today we will look at a very important topic associated with eigenvalues and eigenvectors which is similarity and diagonalization of matrices. So, what is a diagonalizable matrix? 
+
+So, let us start with the definition, a matrix A is diagonalizable if there exists this is a symbol for exists there exists an invertible matrix S such that if I do S inverse AS, then what I get is a diagonal matrix. So, if this condition is satisfied which is like saying that if I can find an invertible matrix such that S inverse AS equals lambda capital lambda which is a diagonal matrix, then the matrix A is diagonalizable. 
+
+So, now let us dig further into this. When is a matrix diagonalizable a matrix is, a matrix being diagonalizable is really tied to having enough independent eigenvector. So, let us understand this. For what do I mean by this statement? Let us so I will make this claim precise. So, suppose A is a n cross n matrix with n linearly independent eigenvectors. Say x1 until xn this is the set of eigenvector, then A is diagonalizable. 
+
+Why? I mean for diagonalizability what do we need to show? We need to manufacture matrixes which will be invertible and S inverse A equals is a diagonal matrix. So, how do we do that? 
+
+Let us let me show you such a matrix. Let S equals you take all this eigenvector that you have and put them as columns in the matrix and let me call that matrix S. So, the question now is S invertible? So, I would say pause the video think about this now are the what is the rank of S? Rank of S is n because x1 to xn is a linearly independent set. This because so linearly independent set so it has full column rank and its n cross in matrix we are looking at we are looking at vectors in n dimensional Euclidean space. What is AS?
+
+AS is A x1 until xn which is nothing but Ax until Axn. But these are not any x these are special vectors these are the eigenvectors of the matrix A. So, let me write down n and S A an independent diagonal with corresponding eigenvalues lambda 1 until lambda n. So, lambda 1 is eigenvalue with corresponding eigenvector x1 and so on. So, what we got this lambda 1 until lambda n xn. Is that clear? 
+
+Now, I could write this as x1 until xn and take this product with a diagonal matrix which is just the eigenvectors. And that is the same as S multiplying diagonal matrix where this is a diagonal matrix with entries all the eigenvalues So, AS is S was multiplied by a diagonal matrix. And that is enough to claim diagonalizability.
+
+Which is equivalent to say in S inverse AS equals our diagonal martrix. We already showed that S is invertible. So, the point is a matrix is diagonalizable if it has enough independent eigenvectors. Which was simple case special case called this a claim if lambda 1 comma lambda 2 are the eigenvalues with corresponding eigenvectors x1 comma x2 and lambda 1 and lambda 2 are distinct. So, lambda 1 is not equal to lambda 2, then x1 comma x2 is a linearly independent set. 
+
+So, eigenvector belonging to different eigenvalues corresponding to different eigenvalues are linearly independent. That is really the claim. We can show this. So, we will start with the linearly independence requirement. The condition is like suppose some constant times x1 plus constant times x2 equals 0. Let me call this equation 1. If I operate A on both sides then I get 0 A of 0 is 0.
+
+But this is nothing but c1 times A x1 is lambda1 x1 A x2 is lambda 2 x2 so call this equation 2. Which is like saying that c1 into lambda 1 minus lambda2 into x1 equals 0. How did I get this? This I obtain by taking 2 minus. So, that is what I did. Now, lambda 1 is not equal to lambda 2 and x1 is not equal to 0. So, what does that imply? So, in this equation which is above let us say this one in this equation lambda 1 minus lambda 2 is not 0 x1 is not 0. 
+
+So, the only way that equation can be 0 is when c1 is 0. Similarly, c2 can be argued that c2 is also 0. And just implies x1 comma x2 is the linearly independent set. 
+
+Now extension of this claim which I am not going to prove. But it is going to follow the same arguments. Which is if lambda 1 to lambda n are distinct. Then their eigenvectors x1 to xn are linearly independent. I will give you this as homework, proof homework. But use the arguments that have done above and you can argue this. So, we will do an example take this matrix A row 1 4 2 3. So, let us calculate the eigenvalues and eigenvectors of this matrix for some practice. 
+
+So, A minus lambda A is nothing but 1 minus lambda for 3 minus lambda. So, the characteristic equation is so I recommend you pause the video and do this on your own then verify with what I got here. 
+
+The roots of this equation so roots are let us say lambda 1 equals 5 lambda 2 equals minus 1. So, now is the question is A diagonalizable? The answer is yes because it has two distinct eigenvalues. It has two distinct eigenvalues. So, the corresponding eigenvector form a linearly independence set and you got enough independent eigenvector to diagonalize the matrix. So, what is pending now, you need to find the eigenvectors.
+
+Finding Eigenvector, so let us take the first one lambda equals 5. So, the corresponding matrix is you have A minus lambda 1 I it turns out to be 1 minus lambda is minus 4. I have the other two are entry same and 3 minus 5 is minus 2. Now, what is the null space of this matrix? Null space of A minus lambda 1, I. if you look at it if I just add the columns that is enough. So, this belongs and that is the only thing that belongs. So, x1 is 1 1.
+
+Though then let us look at a second eigenvalue lambda 2 equals minus 1. In this case, A minus lambda 2 I it turns out to be 2 4 2 4. Now, so how do I make some of column 0, I can take minus 2 times the first column and 1 times the second column. So, minus 2 1 this is one possibility I mean 2 2 comma minus 1 you also work belongs to the null space of A minus lambda 2 I. So, x2 equals minus 2 comma 1. That is about it. 
+
+Now, you can form the matrix all you have to do is the matrix S is going to be stacked the eigenvector minus 2 comma 1. And the diagonal matrix is going to be the eigenvalues which is 5 comma minus 1 just be careful when you add these eigenvectors you have to add the eigenvalues also in the correct order. And then you can check this is something that you can easily check; S inverse AS equals lambda this is something you can check.
+
+Which is 1 1 minus 2 inverse A is 1 4 2 3 minus 2 1 equals 5 0 0 minus 1. So, that is an example now the please try to solve some more problems on your own diagonalize matrices take even a slightly higher dimension say 3 cross 3 and solve these problems. 
+
+We will continue with a few remarks or observations about this. Remark number 1 S inverse AS equals this or A S S lambda S inverse one and the same. Because now S is S unique for a given matrix here. Think about this. The answer is no. Why? If x1 is an eigenvector, then so is any constant multiple of x1. So, if you take the previous example instead of taking 1 1 I could have taken 2 2 and I would still get a valid S. 
+
+So, the columns of S can be scaled to produce to get S prime such that you know S prime inverse AS prime is also a diagonal matrix. The diagonal matrix will not change it is, the diagonal entries are all eigenvalues that will not change but the matrix containing eigenvectors will change. Now, that is something that will make precise in the second remark suppose A can be written like this. And suppose column 1 of this is y.
+
+Now, what is column 1 of S lambda? Column 1 of S lambda is nothing but lambda 1 into y it just by definition. Now, what is column 1 of AS this is nothing but A pre multiplying the first column Ay. Now, we know AS equals is lambda which is the same as in Ay equals lambda 1 y implies lambda 1 is an eigenvalue and y is an eigenvector of A. So, the point we are trying to make is if A is diagonalizable then the diagonal matrix can only contain the eigenvalues of A. 
+
+And the matrix is matrix AS contains the eigenvectors of A. But matrix S is not unique but there are only one set of eigenvalues for a given matrix. So, the diagonal matrix is going to be the same. 
+
+Let us look at another remark which is can look at powers of A. So, suppose lambda is an eigenvalue and x is an eigenvector of A, then what can we say about A square x? A square x is nothing but A of Ax but x is an eigenvector. So, it is A of lambda x which is same as lambda times Ax which is again equal to lambda square x. Now, if you suppose S inverse AS is diagonal matrix, then the question knows is S inverse A S square, S inverse A square S is that equal to lambda square? 
+
+I would think about this given whatever I have written above think about this. Which is like saying that can I use the same matrix of eigenvector and diagonalize A square? The answer is simply yes. Why? It is easy to say this. So, if you take S inverse AS into S inverse AS, what do you get? 
+
+This is the same as this into this which is like saying that S inverse A square S equals now there is nothing special about the square. Argument above works for a general positive integer k 1 that is can you infer S inverse A power k S is just this. Now, the last remark. 
+
+If you want an example take this matrix you can check A does not have 2 be linearly independent eigenvectors. You can check this easily all you have to do is calculate the eigenvalues which has were easy to calculate. And calculate the corresponding eigenvector and you will get only one eigenvector you only get one eigenvector.
+
+Recap of this lecture before we end. So, what did we learn in this lecture what we understood was that now we understood the concept of diagonalization of a matrix. And for diagonalization of a matrix so what happens is you know there are two matrices that come into play the first matrix is where all the eigenvectors go in and it is going to be invertible. 
+
+And the other is a diagonal matrix which contains the eigenvalues along the diagonal for a particular matrix. So, if I get enough matrix is diagonalizable say n cross n matrix we saw that n cross n matrix is diagonalizable if I can get any linearly independent eigenvectors otherwise it is not.
+
+Then we looked at two simple examples where for example 2 cross 2 matrix where we could get two linearly independent eigenvector and we could directly calculate the diagonalized form we could write it in we could write down the decomposition of this matrix to show that it is diagonalizable. 
+
+And subsequently in the next lecture will be and the following lectures we will try to understand which matrices are diagonalizable and which are not. In fact, the mean theorem that we are heading towards is spectral theorem which shows that any real symmetric matrix is diagonalizable. 
+
+

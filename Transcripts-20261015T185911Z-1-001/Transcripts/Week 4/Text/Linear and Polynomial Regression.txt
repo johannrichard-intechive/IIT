@@ -1,0 +1,80 @@
+Transcriber's Name - Crescendo Transcriptions Pvt. Ltd. 
+Machine Learning Foundations
+Professor. Prashanth L A
+Department of Computer Science & Engineering
+Indian Institute of Technology, Madras
+Linear and Polynomial Regression 
+
+Welcome to week 4 of Machine Learning Foundations, we will begin the discussion in linear algebra in particular we will start with linear regression in this lecture, we will cover linear regression and also its close cousin polynomial regression. Now, the main idea that we will illustrate in this lecture is that you can solve a linear regression problem which is very closer, which is like solving a least squares problem either directly by taking derivatives you get a set of equations, that system of equations coincides with whatever system of equations you would get by doing projections.
+
+Now, we have seen how to project onto the column space of matrix A, we had a set of equations that you can solve even if Ax equals b is not solvable you could solve this system of equations. And we will see that if I am given data points say x1, y1 until xn, yn and if I want to do linear regression the system of equations that I get would be the same as whatever I would get using projections and we will verify this by taking the calculus root in this class which is trying to take derivatives of a certain sum of squares objective.
+
+And we will follow it up with a polynomial regression problem which is a generalization of what we had in curve fitting in the last, in the previous week which is instead of fitting a curve you could, which instead of fitting a line you could fit some higher dimensional object like a parabola or something more than or a cubic polynomial or something like that by using a transform set of features, that is something will be looking at in this lecture.
+
+So, welcome to the last lecture of week 3, today I will be covering linear regression, something that we have looked at before, so let us understand. We have looked at the scalar version of this but it could be generalized to a d dimensional parameter so what is given. So, we are given data x1 y1 until say xn, yn.
+
+Now, each of the xi belong to the d dimensional Euclidean space and y is a real valued number, yi for i equals 1 to n. Given this you can make up a loss function let us call this loss function and you are going to fit a linear function through this data. So, you want to minimize the sum of square loss xi transpose theta minus yi square, i equals 1 to n.
+
+Now, how do you minimize L? We have followed this recipe before but I am going to repeat it so that the learning is reinforced. So, what you do is you make up this matrix. So, I want to minimize L for this define a matrix A as all these features stacked up as rows, xn transpose. So, let us call this the feature matrix.
+
+Now, what is A theta? A theta equals x1 transpose theta until xn transpose theta. Suppose you also define using B but it is better to use a minor change of notation in general setting, so I will use this matrix y, I use the notation B before but I think Y is better so y1 until yn. So, what is A theta minus Y is x1 transpose theta minus y1, xn transpose theta minus yn. So, if I take A theta minus Y transpose with itself, summation equals 1 to n, xi transpose theta minus yi square. 
+
+So, L of theta is nothing but half of A theta minus Y transpose into A theta minus Y. Now, I want to minimize so minimizing L is equivalent to setting the gradient of this function with respect to theta equals 0, that is gradient with respect to theta of, I can ignore the constant A theta minus Y minus Y equals 0 and that is the same as setting A transpose to A theta minus Y equals 0, which is equivalent to A transpose A, theta equals A transpose Y. So, this is the equation that we have seen before, I was just generalizing the equation that we had in the scalar case. So, this is the least squares solution that we have seen before. 
+
+Now, as before note this is something that I mentioned before so can we write theta equals A transpose A inverse A transpose Y? The answer is, the answer is yes, if A is full rank. Now, why? So, this is an aside a full rank A implies A transpose A is invertible. So, how to argue this? I am going to give you the hint, not the entire solution.
+
+Show that rank of A equals rank of A transpose A. You do this by showing null space of A equals null space of A transpose A. So, by rank nullity theorem you can easily claim that if the null spaces are the same then the rank is the same. And so if A is full rank A transpose A is full rank, and if A transpose A is full rank then it is invertible.
+
+Now, how do you show null space of A is null space of A transpose of A? That is a useful homework exercise, homework. One direction is simple so homework, if you want some hints take an x belonging to a null space of A and show x belongs to null space of A transpose A and the other way. 
+
+So, if you show these both, then you can claim that these two null spaces are the same. So, you can argue that they are of the same rank. So, if A is full rank I can write this least squares regression solution in a certain way. Now, may be jumping ahead a little right now but this is a connection that you will see finally. 
+
+So, in the last module on probability we will look at an important technique called maximum likelihood estimation, I am not going to define and explain maximum likelihood estimation but I will just give out the connection and you can see more details after you learn both topics. So, suppose the data is generated according to the following model, to the following model.
+
+So, this model is, so if I draw, so here is the linear model. So, this is a linear model if I pass an x the y I get is plus epsilon here this is zero mean noise. Example, epsilon is normal, Gaussian let us say Gaussian with mean 0 and variance anything say let us say 1 by beta, so this beta is usually, the inverse of the variance is the precision so beta is a precision parameter.
+
+So, to elaborate even given data, so if you have a data set like this say, D is xi yi as before i equals 1 to n. Then generated independently, generated in an iid fashion so what is iid? Each of this the data points are independently sampled from a certain distribution which is here given the linear model and they are identically distributed.
+
+Now, given this maximum likelihood approach is to make up this function let us call this L of theta which is the product of this individual densities, these are Gaussian, so I have minus beta by 2 yi minus theta transpose xi square. Now, why this function you will see later, why this function? This will be handled in module I think 6 on probability. The point is let us assume this is a reasonable function to maximize. So, let us call this in this approach, so this ML maximum likelihood approach find, is to find a theta that maximizes L of theta. 
+
+Now, instead of maximizing over theta L of theta we could consider the log likelihood, so this is called a likelihood function, this is L of theta is a likelihood function. So, you take log L of theta. Since log is increasing the optima of these two problems are the same now why am I taking logs, simply because there is an exponential and it is easier to maximize take the derivatives if I have the log.
+
+So, what is log L of theta? Log L of theta equals you take n by 2 log beta and then n by 2 log 2 pi, these are two terms which are independent of theta, but the term that depends on theta is 1 by 2 yi minus theta transpose xi square. Now, this is something, now this function is the least squares objective, this one is the least squares objective that we minimized if you recall with respect to theta.
+
+So, the message is maximizing log L of theta is the same as minimizing over theta of the least squares function which is half summation (())(18:14) xi square. So, that is really the connection I want to make, so when I do least squares regression I am effectively solving a maximum likelihood, or least squares regression solves a maximum likelihood estimation, estimation problem under a linear model. So, that is really the message I wanted to give. 
+
+So, that is really the connection you will be able to appreciate this much more by and when you understand why this likelihood function is written the way it is written that would be too much of a deviation in a linear algebra module but you look at it later, you will understand this later so when you, whenever you learn maximum likelihood estimation come back to this module and make the connections.
+
+The other topic I wanted to talk about is polynomial regression, we were looking at curve fitting with a line and this is just a generalization. So, suppose consider one dimensional data, so you have a data set again xi yi equals 1 to n, xi yi both belong to R for all i. Now, previously we saw, previously, we tried fitting a line through this data.
+
+Here, we generalize to any polynomial, say of degree m. So, you can fit an mth degree polynomial through the data so what you have to do is, so you have to consider what is called transform features. So, transformed features if you want to fit a high degree polynomial. So, given any x plus theta 1 x. This I can write as summation j equals 0 to m theta j, j of x where x power j. So, for a given x, the transformed feature vector is nothing but 1, x, x square, until x power m.
+
+Using this I can write y hat of x is nothing but theta transpose phi of x where theta equals theta naught until theta m and phi of x is given above. And now using these transformed features perform linear regression and that is polynomial regression, that is polynomial regression for you. 
+
+Effectively so if you want to repeat I make the matrix but instead of x1 transpose I will have phi of x1 transpose and so on until phi of x n transpose and then Y is the same y, yn and then you solve the same system that I had written before, you solve exactly same system which is A transpose A theta equals A transpose Y.
+
+The only difference is, the difference here is that we are using transform features, the difference with respect to regular linear regression is that we are transforming the features and then performing regression that is the only difference, the transform features come in this matrix A, so that is a transformation for you.
+
+Now, the last topic before I end this unit is a very short remark which is raised version of linear regression this is also known as ridge regression. So, this is just a quick remark so the idea here is instead of solving minimum over theta half summation say i equals one to n, theta transpose, xi transpose theta minus yi square, we solve the following regularized version.
+
+So, the regularized version is L bar of theta I call this, you want define L bar of thetas of summation equals one to n xi transpose theta minus yi square plus you add a lambda times theta square and this is the regularization term. And what you do is minimum over theta of this function, so you try to minimize this instead of minimizing the ordinary linear regression.
+
+Now, the advantage with this approach is if you repeat the calculation leading to the least square solution, you can look at the very first page of these notes, we obtain, let me call this theta (())(28:12) I will get the same thing instead of A transpose A, I will get a lambda times identity is equal to the same quantity as before.
+
+And I can write A transpose A plus lambda times identity inverse A transpose Y. Now, the question I will leave another homework here, homework show A transpose A plus lambda i is invertible even if A is not full rank. So, this is the regularized version the parameter lambda, note, parameter lambda you will learn later controls overfitting and this is something that you will see in a much later course, it is a regularization parameter, regularization parameter lambda controls overfitting too small lambda could lead to a lot of overfitting, too larger lambda leads what? 
+
+Too large lambda leads to under fitting, this is just a remark that is for the future not for this course but one could dig deeper into the implications of lambda in the context of bias where instead of that is not for this course it is out of scope but just giving you a sample. So, with this we end the discussion about least squares regression, next we will move on to eigenvalues, eigenvectors and decompositions of matrices.
+
+Summary before we end this lecture what we understood in this lecture first and foremost we defined what is a linear regression problem given in data points what does it mean to solve a linear regression problem, it just means that you make up a sum of squares objective and then minimize that sum of squares objective over the input parameter. 
+
+And now when I do this minimization using the calculus root which is by taking partial derivatives and equating those to 0, the system of equations that I would get coincides with whatever I get when I project onto the column space of a matrix. And the second thing we learned in this lecture was this, this is probably a forward reference because sometime in a later week you learn in the probability segment, you learn what it means to solve a maximum likelihood problem where you write down a likelihood function and you maximize it over a certain parameter.
+
+But to make the connection even with least squares problem what we showed was writing down the likelihood function which would be explained later. If I write down a certain likelihood function and if I want to maximize this that is equivalent to solving a least squares problem that is the connection we saw and why does this likelihood function make sense is something that you will understand when we move on to the probability side of things in a later week.
+
+The next thing we saw was polynomial regression which is a generalization of what we saw in a previous, in the previous week which is like fitting a line, instead of fitting a line, you can fit a higher degree polynomial and you can do linear regression by transforming the input features to higher dimensional quantity say for example a parabola or a cubic polynomial or anything, any higher order polynomial and you can do linear regression and how do we do this?
+
+The ideas are simple as in the case of normal linear regression the polynomial regression also involves solving a system of equations that is very closely related to what we had in the projection onto a, in the fitting a line case and that is something we understood in this and then as a forward leap we saw that the system of equation that we make up to solve polynomial regression or ordinary linear regression we can add a certain regularization parameter which has a certain strong machine learning ideas underlying which you will see in a future course.
+
+But from a purely linear algebra point of view that ensures that certain matrix is invertible and you can solve the system of equations by inverting a certain matrix and multiplying it with some other vector which may not be the case when you make up the projected system of equations. So, you can add a regularization parameter to overcome this invertibility issue but this regulation parameter has a much stronger idea which is that it manages under fitting and overfitting or it handles the bias variance trade-off but that is for a follow-up course, not in this course but you will certainly learn it in one of the future courses.
+
+

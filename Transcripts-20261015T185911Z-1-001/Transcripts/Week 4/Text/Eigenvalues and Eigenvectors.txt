@@ -1,0 +1,80 @@
+Transcriber's Name - Crescendo Transcriptions Pvt. Ltd. 
+Machine Learning Foundations
+Professor. Prashanth L A
+Department of Computer Science & Engineering
+Indian Institute of Technology, Madras
+Eigenvalues and Eigenvectors
+
+So, welcome to yet another lecture of machine learning foundations course, we are in week 4, and this is the second lecture and we will begin the discussion with some core linear algebra concepts here, in particular the most important concept that is eigenvalue and also something associated with an eigenvalue, which is eigenvector. 
+
+So, we will understand eigenvalues and eigenvectors for a given matrix, we will first in this course start with a brief motivation on the which illustrate the need for this concept of eigenvalues and eigenvectors. And then we will define concretely what for a given matrix what is an eigenvalue and what is an eigenvector. And then we look at a procedure to calculate these for a given matrix, calculate all eigenvalues and eigenvectors in this lecture. 
+
+We will start the discussion with eigenvalues and eigenvectors, and then cover a lot of topics which build on this, which is looking at real symmetric matrices and trying to look at eigenvalue decomposition and, and also singular value decomposition, which is a further step from there. And finally, we end with principal component analysis, that is the plan for this module, which is linear algebra module 3. We will start more basic will try to understand what eigenvalues and eigenvectors. 
+
+And before I do that I will start with the motivation, why do we care about eigenvalues and eigenvectors. The motivation I am going to use is ordinary differential equations. So, imagine you have a equation like this, dv by dt equals 4 times v minus 5 times w with the initial condition v equals 8 at t equals 0. And add in the other equation the second equation is du by dt equals a 2v minus 3w and with the following initial condition, w equals 5 at t equals 0.
+
+So, if I use in compact notation imagine v and w I think v and w is better, this is w and so u is in compact notation say v and w it is a vector parameter two dimensional and u of 0 is just whatever v of 0, v of 0 is 8 and 5. Now, given this I can write this equation star let us, let me call this equation star, so star can be rewritten as du by dt equals Au, where A is the matrix of coefficient say 4 minus 5, 2 comma minus 3 and 0 at t equals 0, that is the initial condition.
+
+Now, you want to solve a ordinary differential equation like this and the solution of such equations leads naturally to eigenvalues and eigenvectors. And we have look at a very simple case consider a very simple case, simple case you just have one equation simple case of a single equation. So, I just have du by dt equals a times u and a solution would be u of t equals e power a t into u of 0. 
+
+So, we can substitute this solution and see that, it satisfies, so let me call this au double star yeah, it is easy to check easy to see that and this solution, this is, this is a solution of double star. Now, one is really concerned with stability this is beyond the topic of this course, but usually one cares about stability notions of this. So, star is unstable if a is greater than 0, simply because e power a t goes to infinity, with t. 
+
+Now, star is it is called neutrally stable, this is not really needed for this course, but I am just and the third case is stable, this is the most interesting case if a is less than 0, because the solution it goes to a constant yeah, because e power a t becomes yeah constant in that. Now, let us look at the case of a 2d parameter, so if I want to figure out a solutions if I want solutions of this form, one solutions of this form which is say v of t equals say e power minus lambda t into y and say w of t of the following form for the system star, which I outlined above, or if I write it in the form of the vector parameter, I want this to be e power minus lambda t into x, where x is just y and z.
+
+Now, if we substitute thus du by dt equals Au we obtain, we get you just substitute in the two equations that I had before which is so lambda e power minus lambda t y equals 4 e power lambda t y plus 5 e power lambda t z, z equals the two equations that I had in v and w. Now, if you take out e power minus lambda t, we get, we get the very important equation that is.
+
+Now, this equation is the same as Ax equals lambda x and this is the eigenvalue equation, I mean solving a linear system in an ordinary differential equation context comes down to solving a eigenvalue equation, here lambda is the eigenvalue and we want a eigenvector, which is non trivial. So, it is a non-trivial, so it should not be 0.
+
+So, the message is I can solve du by dt equals Au using solutions of the form from whatever I had here u t equals e power minus lambda t x, if Ax equals lambda x can be solved. So, that is really the message and this leads naturally to the definition of eigenvalues and eigenvectors. 
+
+So, to summarize I can solve solution of a linear systems of ordinary, ordinary differential equations is really tied to solving a eigenvalue equation and if I can solve this then I can find a solution of the form that I have here yeah, which is here I can solve an equation with the solution of this form I can solve an ODE a with a solution of this form if I can solve Ax equals lambda x to obtain a non-trivial x.
+
+So, that leads to eigenvalues and eigenvectors definition, for a matrix A lambda is a eigenvalue and x is a eigenvector, if ax equals lambda x. So, this is the eigen equation. So, geometrically if x is here, this is x, then Ax, so if x is an eigenvector, then x is an eigenvector, then a either stretches it, or shrinks it. But A does not change the direction of x. So, that is eigenvalue and eigenvector definition. 
+
+We can look at I mean a special case, now if you take the case lambda equals 0, then Ax equals 0 implies where does x reside, x belongs to the null space of A. So, that is the simplest example that you could think of. 
+
+Now, we will look at a few more examples and directly just by eyeballing you can calculate the eigenvalues and eigenvectors, I mean at least the eigenvalues. So, the first example here is a matrix, projection matrix is something that we saw in the previous module, let us call this P for example project onto a plane, imagine you project onto a plane. So, take any vector x and then Px will be here, it is a right angle which I am struggling to do (())(13:57) to put in that.
+
+Now, for this I would recommend you pause the video and think about the eigenvalues of this matrix and even the eigenvectors, strongly encourage to understand what are the possible eigenvalues and eigenvectors of this projection matrix, in this very simplest case think of projection onto on plane, which is illustrated here, I am going to go on and give out the answers.
+
+So, you can see that Px equals x for any x in the plane, that makes implies lambda equals 1 is an eigenvalue and any x in the plane is an eigenvector. Now, what about that would be the first one, what about the second one is there another eigenvalue, the answer is yes consider an x that is, let me just write this as. 
+
+So, this is x is fine, x that is perpendicular to the plane, then what would happen to Px? If x is already perpendicular to the plane, the only projection is 0. So, lambda equals 0 is another eigenvalue and any x perpendicular to the plane is an eigenvector. So, that is the first example. 
+
+Let us look at another example, this is permutation matrix, a permutation matrix is by definition it is so what you do is, take the identity matrix and shuffle its rows, for example 0, 1, 1, 0, this is a permutation matrix. Now, I can pause this video and try to figure the eigenvalue and eigenvectors of this, I am going to give out one example. 
+
+So, P x equals x try to find an x as that Px equals x, answer is x is 1, 1, the second is Bx equals minus x for what, can pause and try to figure this I have given you the eigenvalue already, the answer is x equals 1 comma minus 1. So, by just these are very simple matrices, so you can just eyeball and find the eigenvalues and guess the eigenvectors. 
+
+I mean but, there is a more systematic procedure to doing this finding the eigenvalues and the procedure to adopt for this is the following. So, let start with the eigen equation, so you have Ax equals lambda x which is equal to A minus lambda I, x equals 0, which is equivalent to saying A minus lambda I, is singular, which finally leads to determinant of A minus lambda I, equals 0. And this particular equation, when you write down this is called a characteristic polynomial of a matrix A.
+
+Now, if A is n cross n then, then the characteristic polynomial is of degree n, and I can write it as some a 1 1 minus lambda into a n n minus lambda equals 0, that would be how the characteristic polynomial. The n roots of characteristic polynomial, roots of this equation are the eigenvalues, so that is how you find. 
+
+Now, that answers one part of the problem, how do you find the eigenvector, we saw that you know you are trying to find an x such that a minus lambda e equals x. So, for eigenvectors want, so if you are given a lambda, given lambda want A minus lambda a of x equals 0 that is x belongs to the null space of e minus lambda I. So, find this to obtain an eigenvector corresponding to eigenvalue lambda. So, that is really the scheme and so can use Gaussian elimination, you can use gaussian elimination to solve A minus lambda x equals 0. 
+
+So, let us do an example, so suppose A is 3 1, 1 3, so I would recommend pause the video calculate the eigenvalues, eigenvectors and then check the lecture to see if you have done the right thing. So, if I do determinant of A minus lambda equals 0, then that is lambda square minus 6 lambda plus 8 equals 0, which is saying lambda 1 plus lambda 2 equals 6, lambda equals to 8, you can verify check lambda 1 plus lambda 2, this is called the trace. 
+
+It is the trace of A, this is the trace of, trace of A is equal to sum of diagonal entries, this row in general and lambda 1 into lambda 2 is the determinant of A, something you can check. So, 3 plus 3 is the diagonal sum, that is the same as the sum of to eigenvalues and so on. Anyway, so the eigenvalues are for this, so the eigenvalues are lambda 1 equals 4, lambda 2 equals 2. 
+
+Now, I need to find the eigenvectors so I will look at A minus 4 I, and that turns out to be subtracting 4 from the diagonal and that would be minus 1, 1, 1, and minus 1 and so if we want to multiply this right multiply this with a vector, such that this leads to 0. So, A minus 4 I into x, I want this to be 0 and that you can just see that x equals 1,1 satisfies, when if x equals 1,1 satisfies obviously x equals 2, 2 satisfies and so on. 
+
+Now, for the other eigenvector A minus 2 I is 1, 1, 1,1. So, all I have to do is A minus 2 I of x equals 0 for x equals, this time make it 1 and minus 1. So, that was a simple example, where the eigenvectors could be easily formed.
+
+Anyway, here is variation, here is a variation of this matrix, suppose I make up a matrix that is very closely related to A. So, say 0, 1, 1, 0, then how is this related to a B plus 3 I equals A. Now, what is Ax, B plus 3 I x equal to lambda x plus 3 x, lambda plus 3 times x. Now, here is something I leave it as a homework, think about this I can vectors of B is equal to eigenvectors of A, try to think about try to argue why this is the case.
+
+So, end with a few remarks one has to be careful while making these arguments. So, suppose I have two matrices, suppose Ax equals lambda 1 into x and Bx equals lambda 2 into x, then can we claim A plus B into x equals lambda 1 plus lambda 2 into x. So, pause and think about this, can I claim that if A has eigenvalue lambda 1 and B has eigenvalue lambda 2. Can I really claim A plus B has eigenvalue lambda 1 plus lambda 2 with x as the eigenvector? 
+
+The answer unfortunately is no, since the x' is need not be the same for A and B, that is you have A x1 equals lambda 1 x1 and B x2 equals lambda 2 x2 with x1 not necessarily equal to x2. In fact, that we will see later this, thus this is the fact that would in the discussion towards the end of the discussion about eigenvalue decomposition, which is following soon.
+
+Is if you have a symmetric matrix, if you have a symmetric matrix then has real eigenvalues. Now, to appreciate this fact you should really see a matrix for which the eigenvalues are not real. And now a matrix whose eigenvalues are not real here is that matrix. So, pause again think about such a matrix, I am going to give out the solution there are many such examples, so the simplest is this.
+
+And now what is determinant of A minus lambda I is lambda square plus 1, so, so the so eigenvalues are i and minus i. So, the eigenvalues are imaginary, also in the previous example if you looked at the earlier example, we got two eigenvectors here and these were the Eigen vectors here are linearly independent. Now, this also may not always happen, so I will give you an example for such a matrix.
+
+So, a matrix where we do not, do not get independent eigenvectors, we get two independent eigenvectors. So, let us take this matrix 3, 1, 0, 3, you can see that I mean it is easy to see that lambda 1 equals lambda 2 equals 3. Now, what is A minus lambda I, which is 0, 1, 0, 0, so the only possible eigenvector which is non trivial x is 1 0 is the not get two independent eigenvectors, or two cross two matrix is a eigenvector and there is no other eigenvector that is linearly independent of x. 
+
+A quick summary before we end this lecture. So, in this lecture we looked at the motivation for using eigenvalues and eigenvectors, but in particular the idea is eigenvalues and eigenvectors help us understand the solutions to ordinary differential equations. 
+
+We saw a concrete example and then after defining eigenvalues and eigenvectors we saw that calculating eigenvalues amounts to solving this you know solving an equation which is called the characteristic polynomial, which comes as a result of calculating the determinant of a matrix given a matrix A, you solve A minus lambda I, the determinant of that equal to 0, and that is the characteristic equation. And we also understood what is the trace of a matrix and also the determinant of a matrix in relation to the eigenvalues.
+
+Now, in the follow-up lectures, in the next lecture we will be looking at how, how many eigenvectors independent eigen vectors, I can get for a matrix, if I have enough eigenvectors can I diagonalize the matrix. So, this notion of diagonalization is highly related, strongly related to how many linearly independent eigenvectors I can get for that matrix. If I get n f, which is the here n f is the number of columns of that matrix. So, if A is encores in matrix and if I get n linear independent eigenvectors, then a is diagonalizable. So, this is an important idea that will come up in the next lecture. 
+
+

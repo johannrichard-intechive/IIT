@@ -1,0 +1,54 @@
+Transcriber's Name - Crescendo Transcriptions Pvt. Ltd. 
+Machine Learning Foundations
+Professor. Prashanth L A
+Department of Computer Science and Engineering 
+Indian Institute of Technology, Madras
+Solving Fibonacci Sequence Using Diagonalization 
+
+Welcome to another lecture in week 4 of machine learning foundations. We will continue our discussion on linear algebra set of things here. In particular, we will be looking at a concrete example that shows the utility of diagonalization. This is the well known Fibonacci sequence. Suppose you want to calculate some higher or determine a Fibonacci sequence without doing it in the Brute force way. 
+
+But you are okay with good enough approximations, then one can use the linear algebra. One can use ideas from diagonalization which is the linear algebra route to understand what the higher order terms in a Fibonacci sequence are. That is exactly what we are going to do in this lecture. 
+
+We will continue our discussion today on similarity and the diagonalization within detailed example. Which is Fibonacci sequence hope everyone is familiar with the Fibonacci sequence. And linear algebra would let us answer some interesting questions about the sequence. Everyone knows that start with 0, 1 and keep on adding the previous two numbers to get the next. So, it is like after this it is 2 + 1 is 3, 3 + 2 is 5 and so on. This is the Fibonacci sequence. 
+
+If you want to write it as a recurrence relation so, this is a sequence this can be noted say Fk and Fk + 2 is the sum of the previous two which is Fk + 1 + Fk. Now, our question is if I am interested in knowing what is F 100? That is the question. Now, we could do this manually or let a computer program do it. But these questions can be answered elegantly using linear algebra. 
+
+Algebra solution to this of this question uses diagonalization. So, to start with I need a matrix. So, let us write down a system of equations. Let us have the system of equations like this you have Fk + 2 equals let us say k Fk + I will add a dummy equation which is Fk + 1 is not changed this is unchanged. Now, if I let the parameter or the trade denote this if I look at this pair how it evolves, then if I want to write uk + 1 as some matrix times uk, what would that matrix? 
+
+Think about this. The answer is this simply because I am in this is equal into writing Fk + 2 Fk + 1 is equal to 1 1 1 0 into Fk + 1 Fk. And you would get this Fk + 1 + Fk and this would be F k + 1 which is the set of equations that we started with. So, what we have is let A denote this matrix 1 1 1 0, then we start with a u naught which is 0 1 and then keep on applying A we will get u1 you apply A again we will get u2 you apply A again you will get u3 and so on. So, if I write uk this is going to be A applied k times to u naught and this is a solution to the system of equations uk + 1 equals A uk. 
+
+Now, how do I find u k for that here is some ideas in a general scenario if you have the set of equations not just Fibonacci in general scenario where A is n cross n. And ui or uk is n cross 1. Now, if A has if A is diagonalizable that is A has n independent eigenvectors. Then start with u naught so if u naught can be written as some linear combination of these eigenvectors because these are since x1 to xn is a basis.
+
+Now if I apply A on this I would get C1 A x1 + λ Cn A xn but these are eigenvectors. So, I would get C1 λ 1 x1 + so on until Cn λ n xn. Now, what is uk? uk is just A power k u naught and if I apply A again to this. So, what would be A square u naught? A square u naught would be C1 A of C1 λ 1 x1 + Cn λ n xn which is nothing but C1 λ 1 square x1 so on until Cn λ n square xn. 
+
+So, if you extend this logic further what you would get is you gets C1 λ 1 power k x1 until Cn λ n power k xn.
+
+Now we will come back to Fibonacci, back to Fibonacci. So, here to find uk we need to check if A is 1 1 1 0 is diagonalizable and find its eigenvectors if it is diagonalizable. So, what is A? A is 1 1 1 0. So, just stop the video now and calculate this on your own what is the characteristic equation just λ square - λ - 1 equals 0. This means λ 1 equals 1 + square root 5 by 2 λ 2 equals 1 - square root 5 by 2, this is the high school mathematics calculating the root for quadratic equation. 
+
+You started with u naught. Now, what is u naught? u naught is F1 F naught which is the first two Fibonacci numbers 1 0. I want to write this as C1 times x1 + C2 times x2 where x1 and x2 are the eigenvectors. So, what are the eigenvectors? Let us find the eigenvectors of A. What is A - λ I A - λ I as 1 - λ 1 1 1 - λ. Now, I want A - λ I x calls this x and this I want this to be equal to 0. 
+
+So, let us take x1 as λ 1 1 and x2 as λ 2 1. What is A - λ 1 I into λ 1 1. This is nothing but λ 1 square - λ 1 - 1 0. But we know look at the characteristic polynomial λ 1 is a square λ 1 is a root of λ square - λ - 1. So, this is nothing but 0 since λ 1 is a root of λ square - λ - 1 equals 0 that is just above. 
+
+Similarly, A - λ 2 I into λ 2 1 equal 0. So, x1 and x2 are the eigenvectors corresponding to λ 1 and λ 2. Now, once we have this we got the basis and we can write u naught as a linear combination. 
+
+Now, writing u naught as a linear combination of x1 comma x2 we want to do this. So, what is u naught, it is the same as first of two Fibonacci numbers at you can check it is like you want some constant times λ 1 which is if I substitute 1 + square root 5 by 2, 1 + square root 5 by 2 comma 1 + some other constant times 1 - square root 5 by 2. Now, you can just you know work backwards and find these as the constants just substitute and check. 
+
+If you are not convinced - 1 by square root 5. If you just do it like this you know the second term just cancels out 1 and 1. And the first term when you add these up you will get 1 just half + half and the other thing that is cancels out. What does this mean? So, what is uk? uk is nothing but C1 λ 1 power k x1 + C2 λ 2 power k x2. Which we just saw before which is the same as which is like same that F k + 1 whatever u give us. 
+
+And Fk if I look at this is equal to the constant here is 1 by square root 5 λ 1 is 1 + square root 5 by 2 power k into x1 as λ 1 comma 1 + 1 by square root 5 - 1 by square root 5 1 - square root 5 by 2 power k into λ 2 1 - square root 5 by 2 comma 1. In particular, I will get Fk equals 1 by square root 5 1 + square root 5 by 2 power k - 1 by square root 5 1 - square root 5 by 2 power k. 
+
+You can check this. This is less than 1. So, as k increases 1 - square root 5 by 2 power k becomes negligible. So, good enough approximation you just take the first number of F k is you just approximate it by the first number 1 by square root 5 1 + square root 5 by 2 power k. Now, this is the same as or if you want the 100 number you can approximate this 1 by square root 5 1 + square root 5 by 2 power 100. 
+
+Which is I think numerically 1 + 1.618 power 100 that is what you get. That is the 100 Fibonacci number. So, we can use so the point of this application is you can use diagonalizability to infer interesting things about linear recurrence relations. So, the bottom line is of this application is diagonalizability can be used to understand linear so the important thing is this recurrence relation was linear. 
+
+What do I mean by that? If you go back to this equation here F k + 1 with all this. So, here this is u k + 1 is some linear function of u k. But instead of this if I had a nonlinear function all of this analysis breaks down. So, this application works simply because you have a linear recurrence relation and we can use tools from linear algebra like the analyzability to understand what happens to the sequence or this relation after large number of iterations. 
+
+A quick recap before we end this lecture. In this lecture, we looked at a concrete example that illustrates the utility of diagonalization. In particular, one can use ideas from diagonalization of a matrix to solve linear recurrence relation and we took a popular example which is a Fibonacci sequence which is obviously a linear recurrence relation. So, for the Fibonacci sequence we made up our linear recurrence relation and that matrix underlying this relation be diagonalized.
+
+And using the diagonalized form of this matrix which is it is a 2 cross 2 matrix. We could get the eigenvalues and the eigenvectors of this. Using this we are able to come up with a very good approximation to higher order terms in the original Fibonacci sequence. For example, in this class in this lecture we saw how to calculate the 100th term of Fibonacci sequence without any brute force calculation by just using diagonalization calculating certain eigenvalues and eigenvectors. 
+
+And then using this information to calculate a higher order term. And this is a lot less compute intensive than actually doing some brute force calculations term by term. And this idea extends to a more general case where you want to solve linear recurrence relation. If you want to solve a linear recurrence relation then ideas from diagonalization are very, very useful. 
+
+In the follow up lectures what we will be looking at is the more I mean what is coming next is the spectral theorem which shows that any real symmetric matrix is diagonalizable and all its eigenvalues are real. Real symmetric matrix has only real eigenvalues. And these important claim which constitutes the spectral theorem is what we will be getting to in the next few lectures.
+
+
